@@ -1,0 +1,594 @@
+html
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ZyroFresh | Pure Nutrition, Naturally</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background: #f6f9f3;
+            color: #222;
+            line-height: 1.6;
+        }
+
+        header {
+            background: linear-gradient(135deg, rgba(37, 109, 60, 0.95), rgba(28, 84, 48, 0.95));
+            padding: 18px 8%;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.18);
+        }
+
+        .header-inner {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 1rem;
+        }
+
+        .brand {
+            display: flex;
+            flex-direction: column;
+            gap: 0.2rem;
+        }
+
+        .logo {
+            color: white;
+            font-size: 30px;
+            font-weight: 900;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+        }
+
+        .tagline {
+            color: rgba(255, 255, 255, 0.85);
+            font-size: 0.95rem;
+        }
+
+        nav {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 18px;
+        }
+
+        nav a {
+            color: #ecf4e7;
+            text-decoration: none;
+            padding: 12px 16px;
+            border-radius: 999px;
+            font-size: 15px;
+            transition: background 0.3s ease, transform 0.3s ease;
+        }
+
+        nav a:hover {
+            background: rgba(255, 255, 255, 0.14);
+            transform: translateY(-1px);
+        }
+
+        .header-btn {
+            display: inline-block;
+            background: white;
+            color: #256d3c;
+            padding: 12px 26px;
+            border-radius: 999px;
+            text-decoration: none;
+            font-weight: 700;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.12);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .header-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 14px 30px rgba(0, 0, 0, 0.16);
+        }
+
+        .hero {
+            position: relative;
+            height: 100vh;
+            background:
+                linear-gradient(rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0.45)),
+                url('https://images.unsplash.com/photo-1542838132-92c53300491e?auto=format&fit=crop&w=1600&q=80');
+
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: white;
+            padding: 20px;
+            overflow: hidden;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 900px;
+        }
+
+        .hero-tag {
+            display: inline-block;
+            background: rgba(255, 255, 255, 0.15);
+            padding: 10px 22px;
+            border-radius: 50px;
+            margin-bottom: 25px;
+            font-size: 15px;
+            letter-spacing: 1px;
+            backdrop-filter: blur(6px);
+        }
+
+        .hero-content h1 {
+            font-size: 76px;
+            line-height: 1.1;
+            margin-bottom: 25px;
+            font-weight: bold;
+        }
+
+        .hero-content p {
+            font-size: 24px;
+            margin-bottom: 35px;
+            color: #f1f1f1;
+            line-height: 1.8;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-bottom: 50px;
+        }
+
+        .secondary-btn {
+            background: transparent;
+            border: 2px solid white;
+        }
+
+        .secondary-btn:hover {
+            background: white;
+            color: #256d3c;
+        }
+
+        .hero-features {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .hero-feature-card {
+            background: rgba(255, 255, 255, 0.12);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            padding: 18px 24px;
+            border-radius: 16px;
+            backdrop-filter: blur(8px);
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-weight: 600;
+        }
+
+        .btn {
+            display: inline-block;
+            background: #8bc34a;
+            color: white;
+            padding: 16px 36px;
+            text-decoration: none;
+            border-radius: 8px;
+            font-size: 18px;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        .btn:hover {
+            transform: translateY(-3px);
+            background: #76ab38;
+        }
+
+        section {
+            padding: 80px 8%;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .section-title h2 {
+            font-size: 42px;
+            color: #256d3c;
+            margin-bottom: 10px;
+        }
+
+        .section-title p {
+            color: #666;
+        }
+
+        .about-box {
+            background: white;
+            padding: 40px;
+            border-radius: 16px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+            text-align: center;
+            font-size: 18px;
+        }
+
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 25px;
+        }
+
+        .product-card {
+            background: white;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+            transition: 0.3s;
+        }
+
+        .product-card:hover {
+            transform: translateY(-8px);
+        }
+
+        .product-card img {
+            width: 100%;
+            height: 220px;
+            object-fit: cover;
+        }
+
+        .product-content {
+            padding: 22px;
+        }
+
+        .product-content h3 {
+            color: #256d3c;
+            margin-bottom: 10px;
+            font-size: 24px;
+        }
+
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 20px;
+        }
+
+        .feature-box {
+            background: white;
+            padding: 30px;
+            border-radius: 16px;
+            text-align: center;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+        }
+
+        .feature-box h3 {
+            color: #256d3c;
+            margin-bottom: 15px;
+        }
+
+        .contact-box {
+            background: white;
+            padding: 40px;
+            border-radius: 16px;
+            text-align: center;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+            font-size: 18px;
+        }
+
+        footer {
+            background: #1f3f26;
+            color: white;
+            text-align: center;
+            padding: 25px;
+        }
+
+        .whatsapp-btn {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: #25d366;
+            color: white;
+            padding: 14px 20px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        @media(max-width:768px) {
+            header {
+                padding: 16px 6%;
+            }
+
+            .header-inner {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 18px;
+            }
+
+            nav {
+                width: 100%;
+                margin-top: 0;
+                justify-content: flex-start;
+                flex-wrap: wrap;
+            }
+
+            nav a {
+                margin: 0;
+            }
+
+            .header-btn {
+                width: 100%;
+                text-align: center;
+            }
+
+            .hero-content h1 {
+                font-size: 48px;
+            }
+
+            .hero-content p {
+                font-size: 22px;
+            }
+
+            .hero-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .hero-feature-card {
+                width: 100%;
+                justify-content: center;
+            }
+
+            .section-title h2 {
+                font-size: 34px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <div class="header-inner">
+            <div class="brand">
+                <div class="logo">ZyroFresh</div>
+                <div class="tagline">Pure Nutrition, Naturally</div>
+            </div>
+
+            <nav>
+                <a href="#home">Home</a>
+                <a href="#about">About</a>
+                <a href="#products">Products</a>
+                <a href="#why">Why Us</a>
+                <a href="#contact">Contact</a>
+            </nav>
+
+            <a class="header-btn" href="#contact">Request Sample</a>
+        </div>
+    </header>
+
+    <section class="hero" id="home">
+        <div class="hero-overlay"></div>
+
+        <div class="hero-content">
+
+            <span class="hero-tag">Premium Dehydrated Foods & Natural Powders</span>
+
+            <h1>
+                Healthy Ingredients.<br>
+                Naturally Preserved.
+            </h1>
+
+            <p>
+                Discover premium dehydrated vegetables, fruit powders,
+                sprouts, and healthy food ingredients crafted for modern nutrition.
+            </p>
+
+            <div class="hero-buttons">
+                <a href="#products" class="btn">Explore Products</a>
+                <a href="#contact" class="btn secondary-btn">Contact Us</a>
+            </div>
+
+            <div class="hero-features">
+
+                <div class="hero-feature-card">
+                    <img src="images/2.jfif" width="45">
+                    <span>100% Natural</span>
+                </div>
+
+                <div class="hero-feature-card">
+                    <img src="https://cdn-icons-png.flaticon.com/512/1046/1046857.png" width="45">
+                    <span>Clean Label Foods</span>
+                </div>
+
+                <div class="hero-feature-card">
+                    <img src="https://cdn-icons-png.flaticon.com/512/2909/2909763.png" width="45">
+                    <span>Advanced Dehydration</span>
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
+    <section id="about">
+        <div class="section-title">
+            <h2>About ZyroFresh</h2>
+            <p>Healthy dehydrated foods and natural powders</p>
+        </div>
+
+        <div class="about-box">
+            <p>
+                ZyroFresh creates premium dehydrated vegetables, fruit powders,
+                healthy snacks, and natural food ingredients for modern healthy lifestyles.
+                We focus on clean-label foods with maximum nutrition and natural taste.
+            </p>
+        </div>
+    </section>
+
+    <section id="products">
+
+        <div class="section-title">
+            <h2>Our Products</h2>
+            <p>Vegetable flakes • Fruit powders • Healthy ingredients</p>
+        </div>
+
+        <div class="products-grid">
+
+            <div class="product-card">
+                <img src="images/onion.jfif">
+                <div class="product-content">
+                    <h3>Onion Flakes</h3>
+                    <p>Premium dehydrated onion flakes with strong natural aroma.</p>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <img src="images/garlic.jfif">
+                <div class="product-content">
+                    <h3>Garlic Flakes</h3>
+                    <p>High quality garlic flakes perfect for seasoning and cooking.</p>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <img src="images/jinger.jfif">
+                <div class="product-content">
+                    <h3>Ginger Flakes</h3>
+                    <p>Natural dehydrated ginger flakes rich in flavor and freshness.</p>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <img src="images/tom.jfif">
+                <div class="product-content">
+                    <h3>Tomato Powder</h3>
+                    <p>Rich tomato powder for soups, sauces, and seasoning blends.</p>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <img src="images/mango.jfif">
+                <div class="product-content">
+                    <h3>Mango Powder</h3>
+                    <p>Natural mango fruit powder packed with tropical flavor.</p>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <img src="images/ban.jfif">
+                <div class="product-content">
+                    <h3>Banana Powder</h3>
+                    <p>Healthy banana powder ideal for smoothies and nutrition blends.</p>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <img src="images/bet.jfif">
+                <div class="product-content">
+                    <h3>Beetroot Powder</h3>
+                    <p>Natural beetroot powder rich in color and nutrients.</p>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <img src="images/spi.jfif">
+                <div class="product-content">
+                    <h3>Spinach Powder</h3>
+                    <p>Green superfood powder loaded with essential nutrients.</p>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <img src="images/spro.jfif">
+                <div class="product-content">
+                    <h3>Dehydrated Sprouts</h3>
+                    <p>Protein-rich healthy sprouts for snacks and healthy meals.</p>
+                </div>
+            </div>
+            <div class="product-card">
+                <img src="images/moringa.jfif">
+                <div class="product-content">
+                    <h3>Moringa Powder</h3>
+                    <p>Superfood moringa powder packed with antioxidants and nutrients.</p>
+                </div>
+            </div>
+        </div>
+
+    </section>
+
+    <section id="why">
+
+        <div class="section-title">
+            <h2>Why Choose ZyroFresh</h2>
+        </div>
+
+        <div class="features">
+
+            <div class="feature-box">
+                <h3>100% Natural</h3>
+                <p>No artificial preservatives or harmful chemicals.</p>
+            </div>
+
+            <div class="feature-box">
+                <h3>Clean Label</h3>
+                <p>Simple ingredients with trusted quality.</p>
+            </div>
+
+            <div class="feature-box">
+                <h3>High Nutrition</h3>
+                <p>Retains natural vitamins and minerals.</p>
+            </div>
+
+            <div class="feature-box">
+                <h3>Made in India</h3>
+                <p>Proudly manufactured with premium ingredients.</p>
+            </div>
+
+        </div>
+
+    </section>
+
+    <section id="contact">
+
+        <div class="section-title">
+            <h2>Contact Us</h2>
+        </div>
+
+        <div class="contact-box">
+
+
+            <p>Syneptron Solutions LLP</p>
+
+            <p>📧 info@syneptron.com</p>
+
+        </div>
+
+    </section>
+
+    <footer>
+        <p>© 2026 Syneptron Solutions LLP| Pure Nutrition, Naturally</p>
+    </footer>
+
+    <a class="whatsapp-btn" href="https://wa.me/919891887879" target="_blank">
+        WhatsApp
+    </a>
+
+</body>
+
+</html>
